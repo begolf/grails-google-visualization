@@ -7,12 +7,14 @@
     function <%=functionName%>() {
         <%=visualizationData.name%>_data = new google.visualization.DataTable();
         <g:each var="column" in="${visualizationData.columns}">
+        
         <g:if test="${column[0]=='role'}">
           <%=visualizationData.name%>_data.addColumn(<%=column[1]%>);
         </g:if>
         <g:else>
           <%=visualizationData.name%>_data.addColumn('<%=column[0]%>', '<%=column[1]%>');
         </g:else>
+
         </g:each>
         <g:each var="row" in="${visualizationData.rows}">
         <%=visualizationData.name%>_data.addRow(<%=row%>);
